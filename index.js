@@ -5,6 +5,8 @@ const cors = require('cors');
 
 const app = express();
 const httpServer = createServer(app);
+const isDev = app.settings.env === 'development'
+const URL = isDev ? 'http://localhost:3000' : 'https://sketchbook-nzm59mvve-jasdeepkapoors-projects.vercel.app/'
 const io = new Server(httpServer, { cors: 'http://localhost:3000' });
 app.use(cors({origin:'http://localhost:3000'}))
 
